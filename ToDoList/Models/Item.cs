@@ -1,26 +1,37 @@
 using System.Collections.Generic;
 
+
+namespace ToDoList.Models
 namespace ToDoList.Models
 {
   public class Item
   {
     public string Description { get; set; }
-    private static List<Item> _instances = new List<Item> { };
+    public int Id { get; set; }
 
     public Item(string description)
     {
       Description = description;
-      _instances.Add(this);
+    }
+    public Item(string description, int id)
+    {
+      Description = description;
+      Id = id;
     }
 
-    public static List<Item> GetAll()
+    public override bool Equals(System.Object otherItem)
     {
-      return _instances;
-    }
-
-    public static void ClearAll()
-    {
-      _instances.Clear();
+      if (!(otherItem is Item))
+      {
+        return false;
+      }
+      else
+      {
+        Item newItem = (Item) otherItem;
+        bool idEquality = (this.Id == newItem.Id);
+        bool descriptionEquality = (this.Description == newItem.Description);
+        return (idEquality && descriptionEquality);
+      }
     }
   }
 }

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using ToDoList.Models;
 
 namespace ToDoList
 {
@@ -13,7 +14,9 @@ namespace ToDoList
 
       WebApplication app = builder.Build();
 
+    //   app.UseDeveloperExceptionPage();
       app.UseHttpsRedirection();
+      app.UseStaticFiles();
 
       app.UseRouting();
 
@@ -26,3 +29,5 @@ namespace ToDoList
     }
   }
 }
+
+
