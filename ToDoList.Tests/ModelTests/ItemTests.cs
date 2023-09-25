@@ -25,7 +25,6 @@ namespace ToDoList.Tests
       Configuration = builder.Build();
       DBConfiguration.ConnectionString = Configuration["ConnectionStrings:TestConnection"];
     }
-
     // [TestMethod]
     // public void ItemConstructor_CreatesInstanceOfItem_Item()
     // {
